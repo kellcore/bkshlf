@@ -10,16 +10,18 @@ module.exports = {
         password:
         {
             type: 'string',
-            required: true
+            required: true,
+            protect: true
         },
         email: {
             type: 'string',
             unique: true,
-            required: true
+            required: true,
+            isEmail: true
         },
         shelf: {
             collection: 'shelf',
-            via: 'shelves'
+            via: 'onshelf'
         },
         // reference to Book
         readers: {

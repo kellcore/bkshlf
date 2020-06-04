@@ -21,7 +21,13 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
-  '/shelves': 'ShelfController.shelves'
+  'GET /books': 'book.allBooks',
+
+  'GET /books/:bookId': 'book.oneBook',
+
+  'POST /books': 'book.create'
+
+
 
 
   /***************************************************************************

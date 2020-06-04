@@ -16,9 +16,9 @@ module.exports = {
             type: 'string'
         },
         // add a reference to Shelf
-        books: {
+        bookshelf: {
             collection: 'shelf',
-            via: 'bookshelf'
+            via: 'bookshelves'
         },
         // add a reference to User
         reader: {

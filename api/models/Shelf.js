@@ -15,13 +15,13 @@ module.exports = {
             type: 'number'
         },
         // add reference to User
-        shelves: {
+        onshelf: {
             model: 'User'
         },
         //add reference to Book
-        bookshelf: {
+        bookshelves: {
             collection: 'book',
-            via: 'books'
+            via: 'bookshelf'
         }
     }
 };
