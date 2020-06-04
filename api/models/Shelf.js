@@ -13,6 +13,15 @@ module.exports = {
         total:
         {
             type: 'number'
+        },
+        // add reference to User
+        shelves: {
+            model: 'User'
+        },
+        //add reference to Book
+        bookshelf: {
+            collection: 'book',
+            via: 'books'
         }
     }
 };

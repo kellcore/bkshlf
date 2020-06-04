@@ -16,6 +16,15 @@ module.exports = {
             type: 'string',
             unique: true,
             required: true
+        },
+        shelf: {
+            collection: 'shelf',
+            via: 'shelves'
+        },
+        // reference to Book
+        readers: {
+            collection: 'book',
+            via: 'reader'
         }
     }
 }
