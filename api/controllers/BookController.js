@@ -1,7 +1,7 @@
 module.exports = {
 
     allBooks: async function (req, res) {
-        let myBooks = await Book.find();
+        const myBooks = await Book.find();
 
         res.send(myBooks);
     },
@@ -13,7 +13,7 @@ module.exports = {
         const pages = req.body.pages
         const genre = req.body.genre
 
-        let newBook = await Book.create({ title: title, author: author, pages: pages, genre: genre }).fetch();
+        const newBook = await Book.create({ title: title, author: author, pages: pages, genre: genre }).fetch();
 
         res.send(newBook);
 
@@ -21,7 +21,7 @@ module.exports = {
 
     oneBook: async function (req, res) {
         const bookId = req.param('bookId');
-        let oneBook = await Book.findOne(bookId);
+        const oneBook = await Book.findOne(bookId);
 
         res.send(oneBook);
     },
@@ -33,7 +33,7 @@ module.exports = {
         const pages = req.body.pages
         const genre = req.body.genre
 
-        let editBook = await Book.updateOne(bookId)
+        const editBook = await Book.updateOne(bookId)
             .set({ title: title, author: author, pages: pages, genre: genre });
 
         res.send(editBook);
@@ -42,7 +42,7 @@ module.exports = {
     deleteBook: async function (req, res) {
         const bookId = req.param('bookId');
 
-        let deleteBook = await Book.destroyOne(bookId);
+        const deleteBook = await Book.destroyOne(bookId);
 
         console.log(deleteBook);
 
