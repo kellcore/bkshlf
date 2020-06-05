@@ -2,11 +2,11 @@ module.exports = {
 
     allBooks: async function (req, res) {
         let myBooks = await Book.find();
-        // console.log(myBooks);
+
         res.send(myBooks);
     },
 
-    create: async function (req, res) {
+    createBook: async function (req, res) {
 
         const title = req.body.title
         const author = req.body.author
@@ -14,7 +14,7 @@ module.exports = {
         const genre = req.body.genre
 
         let newBook = await Book.create({ title: title, author: author, pages: pages, genre: genre }).fetch();
-        console.log(newBook);
+
         res.send(newBook);
 
     },
@@ -22,10 +22,31 @@ module.exports = {
     oneBook: async function (req, res) {
         const bookId = req.param('bookId');
         let oneBook = await Book.findOne(bookId);
-        console.log(oneBook);
+
         res.send(oneBook);
+    },
+
+    editBook: async function (req, res) {
+        const bookId = req.param('bookId');
+        const title = req.body.title
+        const author = req.body.author
+        const pages = req.body.pages
+        const genre = req.body.genre
+
+        let editBook = await Book.updateOne(bookId)
+            .set({ title: title, author: author, pages: pages, genre: genre });
+
+        res.send(editBook);
+    },
+
+    deleteBook: async function (req, res) {
+        const bookId = req.param('bookId');
+
+        let deleteBook = await Book.destroyOne(bookId);
+
+        console.log(deleteBook);
+
+        res.send(deleteBook);
     }
 
-    // to-do:
-    // update using id, delete route
 }
